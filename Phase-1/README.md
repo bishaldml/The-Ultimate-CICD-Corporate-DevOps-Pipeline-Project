@@ -217,6 +217,10 @@ or
 ```
 sudo chmod 666 /var/run/docker.sock
 ```
-### Step-
-
-### Step-
+### Step-5: Installing SonarQube on SonarQube_Instance.
+1. Update the server
+```
+sudo apt update
+```
+2. 
+### Step-6: Installing Nexus on Nexus_Instance.
