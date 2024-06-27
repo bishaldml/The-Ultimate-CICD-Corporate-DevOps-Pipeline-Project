@@ -6,6 +6,8 @@ vm -----> Nexus
 
 K8's -----> EKS
 
+----
+
 ### Step-1: Create 3 vm's instances:
 1. Login to your AWS Account
 2. Launch vm with below configurations
@@ -161,6 +163,7 @@ eksctl create nodegroup --cluster=<my-eks22> \
                        --appmesh-access \
                        --alb-ingress-access
 ```
+---
 
 ### Step-4: Installing Jenkins on the Jenkins_Server instance:
 1. Update server package
@@ -219,6 +222,8 @@ or
 ```
 sudo chmod 666 /var/run/docker.sock
 ```
+---
+
 ### Step-5: Installing SonarQube on SonarQube_Instance.
 1. Update the server
 ```
@@ -233,4 +238,12 @@ use above script to install docker
 docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
 ```
 4. Access SonarQube by opening a web browser and navigating to http://<SonarQube_instance_Ip>:9000.
+
+---
+
 ### Step-6: Installing Nexus on Nexus_Instance.
+1. Update the server
+```
+sudo apt update
+```
+2. 
