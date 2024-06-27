@@ -41,7 +41,7 @@ K8's -----> EKS
 2. Select 'Users'
 3. Create User
 4. User name: eks-create-cluster-bishal
-### @ Note: Once user is created, assign the policy so that user can create EKS.
+##### @ Note: Once user is created, assign the policy so that user can create EKS.
 
 1. Goto your created user
 2. select 'Add Permissions'
@@ -54,7 +54,7 @@ K8's -----> EKS
   5. AWSCloudFormationFullAccess
   6. IAMFullAccess
 
-### @ Note: Once all the policies are added and we need to add the inline policy also. For that:
+##### @ Note: Once all the policies are added and we need to add the inline policy also. For that:
 1. Again Select "Add Permission"
 2. On drop-down menu: Select 'Create inline policy'
 3. Select 'JSON' on rightside.
