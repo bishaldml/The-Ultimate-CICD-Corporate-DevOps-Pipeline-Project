@@ -168,6 +168,7 @@ eksctl create nodegroup --cluster=<my-eks22> \
 sudo apt update
 ```
 2. Prerequisite: Java
+
 Install OpenJDK 17 JRE Headless
 ```
 sudo apt install openjdk-17-jre-headless -y
@@ -223,5 +224,9 @@ sudo chmod 666 /var/run/docker.sock
 ```
 sudo apt update
 ```
-2. 
+2. Install docker: we are going to use the docker to setup sonarqube 
+```
+use above script to install docker
+```
+3. 
 ### Step-6: Installing Nexus on Nexus_Instance.
