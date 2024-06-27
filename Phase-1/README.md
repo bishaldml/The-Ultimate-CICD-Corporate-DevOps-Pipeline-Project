@@ -228,5 +228,9 @@ sudo apt update
 ```
 use above script to install docker
 ```
-3. 
+3. Run SonarQube container
+```
+docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
+```
+4. Access SonarQube by opening a web browser and navigating to http://<SonarQube_instance_Ip>:9000.
 ### Step-6: Installing Nexus on Nexus_Instance.
