@@ -101,9 +101,33 @@ Its going to create user_name and passwords which we can download in CSV format.
 4. Then close your terminal tab.
 5. Again open it form user session.
 ---
-ssh to Jenkins_Server:
+ssh to Jenkins_Server instance:
 ```
 sudo apt update && apt upgrade -y
+```
+Now, we will install AWSCLI, KUBECTL and EKSCTL on Jenkins_Server
+1. AWSCLI: use to interact with AWS account.
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt install unzip
+unzip awscliv2.zip
+sudo ./aws/install
+```
+```
+aws configure
+```
+2. KUBECTL: use to interact with K8's cluster.
+```
+curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin
+kubectl version --short --client
+```
+3. EKSCTL: use to create EKS cluster.
+```
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+eksctl version
 ```
 ### Step-
 
