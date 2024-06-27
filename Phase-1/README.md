@@ -65,10 +65,46 @@ K8's -----> EKS
     ]
 }
 ```
-6. 
-8. 
-### Step-
+6. Provide Policy name: EKS-inline-policy-bishal
+##### @Note: After completion, again In IAM Dashboard.
+1. Select Users.
+2. Click 'your created user'
+3. Click on "Security Credentials"
+4. On Access Tab:
+5. Create access key.
+6. In 'Use Case'
+7. Select 'CLI'
+8. Click on "I understand ...."
+9. Click on "Next".
 
+Its going to create user_name and passwords which we can download in CSV format.
+
+##### @Note: we have created a user that is responsible for creating EKS Cluster. Its not best practice to use root account to create service or resouce.
+
+##### Download portable version of MobaXterm Home Edition and Install it.
+
+### Step-3: Creating a EKS Cluster.
+##### @Note: For creating a EKS Cluster, we can use a separate vm or use a Jenkins_Server Instance. In this lab, we will use Jenkins Instance to create EKS.
+
+1. Open MobaXterm
+2. click on "Session"
+3. Click on "SSH"
+4. On "Remote host: ```<IP_Addr_Jenkins_Server>```"
+5. Username: ubuntu
+6. Advanced SSH Setting:
+7. Use Private Key: ```<.pem key_file location>
+8. Ok
+---
+1. On 'User Sessions'
+2. Click on your machine and rename it to Jenkins_Server
+3. Click on 'Customize tab color and gowith red'
+4. Then close your terminal tab.
+5. Again open it form user session.
+---
+ssh to Jenkins_Server:
+```
+sudo apt update && apt upgrade -y
+```
 ### Step-
 
 ### Step-
