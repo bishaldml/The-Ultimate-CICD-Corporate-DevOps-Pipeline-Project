@@ -52,4 +52,4 @@ The Ultimate CICD Corporate DevOps Pipeline Project | devopsshack
 16. Verify the Deployment: The pipeline verifies the deployment by checking the pods and services in Kubernetes.
 17. Monitoring and Feedback: Real-time monitoring of key metrics and collection of feedback for improvement.
 
-![WorkFlow Architecture](Images/devops.png)
+![WorkFlow Architecture](Images/devops.jpg)
