@@ -230,7 +230,7 @@ sudo chmod 666 /var/run/docker.sock
 ```
 sudo apt update
 ```
-2. Install docker: we are going to use the docker to setup sonarqube 
+2. Install docker as well as give permission to use the docker: we are going to use the docker to setup sonarqube 
 ```
 use above script to install docker
 ```
@@ -238,7 +238,7 @@ use above script to install docker
 ```
 docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
 ```
-4. Access SonarQube by opening a web browser and navigating to http://<SonarQube_instance_Ip>:9000.
+4. Access SonarQube by opening a web browser and navigating to ```http://<SonarQube_instance_Ip>:9000```. Its initial username and password is both admin.
 
 ---
 
@@ -247,4 +247,31 @@ docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
 ```
 sudo apt update
 ```
-2. 
+2. Install docker and as well as give permission to use the docker: we are going to use the docker to setup Nexus:
+3. Run Nexus container using docker-compose:
+
+docker-compose.yml
+```
+version: "3"
+services:
+  nexus:
+    image: sonatype/nexus3
+    restart: always
+    volumes:
+      - "nexus-data:/sonatype-work"
+    ports:
+      - "8081:8081"
+      - "8085:8085"
+volumes:
+  nexus-data: {}
+```
+4. Start the container:
+```
+sudo docker compose up -d
+```
+OR,
+Run the nexus container using docker only:
+```
+
+```
+5. 
