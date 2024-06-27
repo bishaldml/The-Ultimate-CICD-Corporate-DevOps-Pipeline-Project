@@ -116,6 +116,7 @@ sudo ./aws/install
 ```
 aws configure
 ```
+@ To configure our EKS-Cluster-User that we created. This is the user that we want to connect from our vm to AWS account. ```aws configure``` will ask for the access_key_ID and secret_access_key: use the security-cred that we created in access_Key, which was downloaded in your local machine. Default region name: <give your region code name (ap-south-1)>, Default output format:<Just press enter>
 2. KUBECTL: use to interact with K8's cluster.
 ```
 curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
