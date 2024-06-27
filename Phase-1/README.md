@@ -29,6 +29,7 @@ K8's -----> EKS
      ```
      4. Storage: ```25 GiB```.
  
+---
 
 ### Step-2: Create a new user for creating EKS.
 1. Goto IAM.
