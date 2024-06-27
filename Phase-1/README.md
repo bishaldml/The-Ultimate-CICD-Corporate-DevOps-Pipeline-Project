@@ -1,6 +1,9 @@
 vm -----> Jenkins
+
 vm -----> SonarQube
+
 vm -----> Nexus
+
 K8's -----> EKS
 
 ### Step-1: Create 3 vm's instances:
