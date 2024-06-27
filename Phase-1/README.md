@@ -10,10 +10,10 @@ K8's -----> EKS
 1. Login to your AWS Account
 2. Launch vm with below configurations
    
-  1. AMI: ```Ubuntu latest version```
-  2. Instance_Type: ```t2.large``` # 8 RAM and 2 CPU (for jenkis server only for other vm use t2.medium)
-  3. NSG: ```Project-Demo-NSG-bishal```
-     
+     1. AMI: ```Ubuntu latest version```
+     2. Instance_Type: ```t2.large``` # 8 RAM and 2 CPU (for jenkis server only for other vm use t2.medium)
+     3. NSG: ```Project-Demo-NSG-bishal```
+     ```
      Type -----> Port range
      
      SMTP -----> 25
@@ -33,7 +33,7 @@ K8's -----> EKS
      SMTPS -----> 465
      
      Customs TCP -----> 27017
-     
+     ```
   4. Storage: ```25 GiB```.
  
 
