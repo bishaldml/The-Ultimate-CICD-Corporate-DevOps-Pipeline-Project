@@ -130,7 +130,36 @@ curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/d
 sudo mv /tmp/eksctl /usr/local/bin
 eksctl version
 ```
-### Step-
+### Step-4: Create EKS Cluster:
+```
+eksctl create cluster --name=<my-eks22> \
+                      --region=ap-south-1 \
+                      --zones=ap-south-1a,ap-south-1b \
+                      --version=1.30 \
+                      --without-nodegroup
+
+eksctl utils associate-iam-oidc-provider \
+    --region ap-south-1 \
+    --cluster <my-eks22> \
+    --approve
+
+eksctl create nodegroup --cluster=<my-eks22> \
+                       --region=ap-south-1 \
+                       --name=node2 \
+                       --node-type=t3.medium \
+                       --nodes=3 \
+                       --nodes-min=2 \
+                       --nodes-max=4 \
+                       --node-volume-size=20 \
+                       --ssh-access \
+                       --ssh-public-key=Key \
+                       --managed \
+                       --asg-access \
+                       --external-dns-access \
+                       --full-ecr-access \
+                       --appmesh-access \
+                       --alb-ingress-access
+```
 
 ### Step-
 
