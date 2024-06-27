@@ -272,6 +272,6 @@ sudo docker compose up -d
 OR,
 Run the nexus container using docker only:
 ```
-
+docker run -d --name nexus3 -p 8081:8018 sonatype/nexus
 ```
 5. 
