@@ -12,16 +12,27 @@ K8's -----> EKS
   1. AMI: Ubuntu latest version
   2. Instance_Type: t2.large # 8 RAM and 2 CPU (for jenkis server only for other vm use t2.medium)
   3. NSG: Project-Demo-NSG-bishal
+     
      Type -----> Port range
+     
      SMTP -----> 25
+     
      Custom TCP -----> 3000-10000
+     
      HTTP -----> 80
+     
      HTTPS -----> 445
+     
      SSH -----> 22
+     
      Custom TCP -----> 6443
+     
      Custom TCP -----> 30000-32767
+     
      SMTPS -----> 465
+     
      Customs TCP -----> 27017
+     
   4. Storage: 25 GiB.
  
 
