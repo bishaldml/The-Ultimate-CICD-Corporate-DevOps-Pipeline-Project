@@ -188,7 +188,7 @@ sudo apt-get update
 # Install Jenkins
 sudo apt-get install jenkins -y
 ```      
-4. Browse to ```https://<jenkins_server-ip_addr>:8080```
+4. Browse to ```http://<jenkins_server-ip_addr>:8080```
 ### Step-
 
 ### Step-
