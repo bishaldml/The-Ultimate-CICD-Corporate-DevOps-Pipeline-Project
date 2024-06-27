@@ -130,7 +130,7 @@ curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/d
 sudo mv /tmp/eksctl /usr/local/bin
 eksctl version
 ```
-### Step-4: Create EKS Cluster:
+#### Create EKS Cluster:
 ```
 eksctl create cluster --name=<my-eks22> \
                       --region=ap-south-1 \
