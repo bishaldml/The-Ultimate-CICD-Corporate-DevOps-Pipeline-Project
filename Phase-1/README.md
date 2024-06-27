@@ -15,26 +15,17 @@ K8's -----> EKS
      3. NSG: ```Project-Demo-NSG-bishal```
      ```
      Type -----> Port range
-     
      SMTP -----> 25
-     
      Custom TCP -----> 3000-10000
-     
      HTTP -----> 80
-     
      HTTPS -----> 445
-     
      SSH -----> 22
-     
      Custom TCP -----> 6443
-     
      Custom TCP -----> 30000-32767
-     
      SMTPS -----> 465
-     
      Customs TCP -----> 27017
      ```
-  4. Storage: ```25 GiB```.
+     4. Storage: ```25 GiB```.
  
 
 ### Step-2: Create a new user for creating EKS.
