@@ -51,3 +51,5 @@ The Ultimate CICD Corporate DevOps Pipeline Project | devopsshack
 15. Deploy to Kubernetes: The pipeline deploys the application to a Kubernetes cluster.
 16. Verify the Deployment: The pipeline verifies the deployment by checking the pods and services in Kubernetes.
 17. Monitoring and Feedback: Real-time monitoring of key metrics and collection of feedback for improvement.
+
+![WorkFlow Architecture](Images/devops.png)
