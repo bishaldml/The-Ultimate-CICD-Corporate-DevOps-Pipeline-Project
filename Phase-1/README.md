@@ -1,3 +1,8 @@
+# Infrastructure SetUp
+1. Create VM's for Jenkins, Nexus and SonarQube
+2. Setup EKS with new user
+
+---
 vm -----> Jenkins
 
 vm -----> SonarQube
