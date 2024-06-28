@@ -9,9 +9,9 @@
 ---
 ### Step-2: Install all necessary Plugins in Jenkins
 ---
-Steps to Install:
+##### Steps to Install:
 
-Go to Jenkins dashboard -> Manage Jenkins -> Manage Plugins -> Available tab.
+##### Go to Jenkins dashboard -> Manage Jenkins -> Manage Plugins -> Available tab.
 Search for each plugin by name.
 Select and install each plugin without restarting.
 
@@ -32,6 +32,9 @@ You're right, there's no need to repeat those steps for each type of credential.
 ---
 ### Step-3: Configuration of the system
 ---
+##### Go to Dashboard > Manage Jenkins > System
+
+
 
 ### Step
 
