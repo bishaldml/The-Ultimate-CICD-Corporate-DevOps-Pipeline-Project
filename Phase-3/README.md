@@ -79,6 +79,18 @@ add : http://jenkins_ip:webhook/
 ```
 4. kubernetes
    1. Create a Kubernetes secret using the following YAML configuration:
+```
+apiVersion: v1
+kind: Secret
+type: kubernetes.io/service-account-token
+metadata:
+  name: mysecretname
+  annotations:
+    kubernetes.io/service-account.name: myserviceaccount
+```
+   2. Save this as service-account-token.yml, then run:
+   3. Retrieve the token from the created secret:
+   4. 
 
 ### Step-5: Start writing the Pipeline
 1. Goto Jenkins Dashboard.
