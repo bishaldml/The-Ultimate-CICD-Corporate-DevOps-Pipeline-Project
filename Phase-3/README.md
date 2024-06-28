@@ -52,9 +52,21 @@ You're right, there's no need to repeat those steps for each type of credential.
 ##### Go to Dashboard > Manage Jenkins > Security: Credentials -> (global) -> Add Credentials
 
 1. github
+        1. Choose "Username with password" or "Secret text" based on your preference.
+        2. Enter your GitHub username and token/password and set id to git-cred
+        3. Click "OK".
 2. docker
+        1. Choose "Username with password".
+        2. Enter your Docker registry username and password. Set id to docker-cred
+        3. Click "OK".
 3. sonarqube token
-4. kubernetes
+   Token:
+        1. Generate a token in your SonarQube account. Set id to sonar-cred
+        2. Choose "Secret text".
+        3. Enter the generated SonarQube token.
+        4. Click "OK".
+5. kubernetes
+
 
 ### Step-5: Start writing the Pipeline
 1. Goto Jenkins Dashboard.
