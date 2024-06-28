@@ -9,9 +9,8 @@
 ---
 ### Step-2: Install all necessary Plugins in Jenkins
 ---
-##### Steps to Install:
-
 ##### Go to Jenkins dashboard -> Manage Jenkins -> Manage Plugins -> Available tab.
+
 Search for each plugin by name.
 Select and install each plugin without restarting.
 
@@ -30,15 +29,32 @@ After installing, configure the plugins as needed in Jenkins global configuratio
 You're right, there's no need to repeat those steps for each type of credential. Here’s a simplified and more concise version:
 
 ---
-### Step-3: Configuration of the system
+### Step-3: Configuration of the System
 ---
-##### Go to Dashboard > Manage Jenkins > System
+##### Go to Dashboard > Manage Jenkins > System Configuration: System (Configure global settings and paths.)
 
+1. Jenkins Location
+2. SonarQube servers
 
+---
+### Step-4: Configuration of the Tools
+---
+##### Go to Dashboard > Manage Jenkins > System Configuration: Tools (Configure tools, their locations and automatic installers.)
 
-### Step
+1. jdk installations
+2. SonarQube Scanner installations
+3. Maven installations
+4. Docker
 
+---
+### Step-4: Configure Credentials
+---
+##### Go to Dashboard > Manage Jenkins > Security: Credentials -> (global) -> Add Credentials
 
+1. github
+2. docker
+3. sonarqube token
+4. kubernetes
 ### Step
 
 ### Step
