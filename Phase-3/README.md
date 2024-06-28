@@ -2,6 +2,15 @@
 1. Configure Jenkins
 2. Create CICD Pipeline
 3. CICD + Mail Notification
+
+#### Installing Trivy in Jenkins_Instance for File System Scan:
+```
+sudo apt-get install wget apt-transport-https gnupg lsb-release
+wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
+sudo apt-get update
+sudo apt-get install trivy
+```
 ---
 ### Step-1: Browse and login to the Jenkins Server: <jenkins_instance_ip:8080>
 ---
