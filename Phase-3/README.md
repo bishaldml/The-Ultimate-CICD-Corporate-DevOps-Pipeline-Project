@@ -131,3 +131,158 @@ No. of stages that we are going to build on this project are as follows:
 12. Deploy to k8's
 13. Verify the Deployment
 ```
+##### Final Pipeline that we are going to use for the Project:
+```
+pipeline {
+   agent any
+
+   tools {
+      jdk 'jdk17'
+      maven 'maven3'
+   }
+
+   environment {
+      SCANNER_HOME= tool 'sonar-scanner'
+   }
+
+   stages {
+      stage('Git Checkout') {
+         steps {
+            git branch: 'main', credentialsId: 'github-esse-jacques-dansomon', url: 'https://github.com/esse-jacques-dansomon/springSchoolManagement'
+         }
+      }
+
+      stage('Compile') {
+         steps {
+            sh "mvn compile"
+         }
+      }
+
+      stage('Tests') {
+         steps {
+            sh "mvn test"
+         }
+      }
+
+      stage('File System Scan') {
+         steps {
+            sh "trivy fs --format table -o trivy-fs-report.html ."
+         }
+      }
+
+      stage('SonarQuebe Analysis') {
+         steps {
+            withSonarQubeEnv("sonar") {
+               sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=schoolManagement -Dsonar.projectKey=schoolManagement \
+                            -Dsonar.java.binaries=. '''
+            }
+         }
+      }
+
+      stage('Quality Gate') {
+         steps {
+            script {
+               waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
+            }
+         }
+      }
+
+
+      stage('Build') {
+         steps {
+            sh "mvn package"
+         }
+      }
+
+
+      stage('Publish to nexus ') {
+         steps {
+            withMaven(globalMavenSettingsConfig: 'global-settings', jdk: 'jdk17', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {
+               sh "mvn deploy"
+            }
+         }
+      }
+
+      stage('Build & Tag Docker Image') {
+         steps {
+            script {
+               withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
+                  sh "docker build -t essejacquesdansomon/school_management:latest ."
+               }
+            }
+         }
+      }
+
+      stage('Docker Image Scan') {
+         steps {
+            sh "trivy image --format table -o trivy-fs-report.html essejacquesdansomon/school_management:latest"
+         }
+      }
+
+      stage('Push Docker Image') {
+         steps {
+            script {
+               withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
+                  sh "docker push essejacquesdansomon/school_management:latest"
+               }
+            }
+         }
+      }
+
+
+      stage('Deploy to Kubernetes') {
+         steps {
+            withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: '', credentialsId: 'k8s-cred', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://172.31.55.142:6443') {
+               sh "kubectl apply -f ./k8s/app-deployment.yaml"
+            }
+         }
+      }
+
+
+      stage('Verify the Deployment') {
+         steps {
+            withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: '', credentialsId: 'k8s-cred', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://172.31.55.142:6443') {
+               sh "kubectl get pods -n webapps"
+               sh "kubectl get svc -n webapps"
+            }
+         }
+      }
+
+
+   }
+   post {
+      always {
+         script {
+            def jobName = env.JOB_NAME
+            def buildNumber = env.BUILD_NUMBER
+            def pipelineStatus = currentBuild.result ?: 'UNKNOWN'
+            def bannerColor = pipelineStatus.toUpperCase() == 'SUCCESS' ? 'green' : 'red'
+
+            def body = """
+                <html>
+                <body>
+                <div style="border: 4px solid ${bannerColor}; padding: 10px;">
+                <h2>${jobName} - Build ${buildNumber}</h2>
+                <div style="background-color: ${bannerColor}; padding: 10px;">
+                <h3 style="color: white;">Pipeline Status: ${pipelineStatus.toUpperCase()}</h3>
+                </div>
+                <p>Check the <a href="${BUILD_URL}">console output</a>.</p>
+                </div>
+                </body>
+                </html>
+            """
+
+            emailext (
+                    subject: "${jobName} - Build ${buildNumber} - ${pipelineStatus.toUpperCase()}",
+                    body: body,
+                    to: 'essedansomon@gmail.com',
+                    from: 'jenkins@jacques-dansomon.com',
+                    replyTo: 'jenkins@jacques-dansomon.com',
+                    mimeType: 'text/html',
+                    attachmentsPattern: 'trivy-image-report.html'
+            )
+         }
+      }
+   }
+}
+```
