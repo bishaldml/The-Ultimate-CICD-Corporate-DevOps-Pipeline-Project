@@ -275,9 +275,9 @@ pipeline {
             emailext (
                     subject: "${jobName} - Build ${buildNumber} - ${pipelineStatus.toUpperCase()}",
                     body: body,
-                    to: 'essedansomon@gmail.com',
-                    from: 'jenkins@jacques-dansomon.com',
-                    replyTo: 'jenkins@jacques-dansomon.com',
+                    to: 'bishaln@gmail.com',
+                    from: 'jenkins@example.com',
+                    replyTo: 'jenkins@example.com',
                     mimeType: 'text/html',
                     attachmentsPattern: 'trivy-image-report.html'
             )
