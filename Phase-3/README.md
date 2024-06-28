@@ -44,7 +44,7 @@ You're right, there's no need to repeat those steps for each type of credential.
 1. jdk installations
 2. SonarQube Scanner installations
 3. Maven installations
-4. Docker
+4. Docker installations
 
 ---
 ### Step-4: Configure Credentials
