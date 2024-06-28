@@ -40,9 +40,9 @@ cd blackbox_exporter-0.25.0.linux-amd64/
 
 ### Step-5: Install Node Exporter on Ec2 instances you want to monitor
 ```
-wget https://github.com/prometheus/blackbox_exporter/releases/download/v0.25.0/blackbox_exporter-0.25.0.linux-amd64.tar.gz
-tar -xvf blackbox_exporter-0.25.0.linux-amd64.tar.gz
-rm blackbox_exporter-0.25.0.linux-amd64.tar.gz
-cd blackbox_exporter-0.25.0.linux-amd64/
-./blackbox_exporter &
+wget https://github.com/prometheus/node_exporter/releases/download/v1.8.1/node_exporter-1.8.1.linux-amd64.tar.gz
+tar -xvf node_exporter-1.8.1.linux-amd64.tar.gz 
+rm node_exporter-1.8.1.linux-amd64.tar.gz
+cd node_exporter-1.8.1.linux-amd64/
+./node_exporter &
 ```
