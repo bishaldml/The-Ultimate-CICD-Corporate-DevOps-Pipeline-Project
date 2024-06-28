@@ -85,7 +85,3 @@ No. of stages that we are going to build on this project are as follows:
 12. Deploy to k8's
 13. Verify the Deployment
 ```
-
-### Step
-
-### Step
