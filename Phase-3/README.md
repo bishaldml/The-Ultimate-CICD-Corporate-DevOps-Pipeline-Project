@@ -28,10 +28,11 @@ Select and install each plugin without restarting.
 After installing, configure the plugins as needed in Jenkins global configuration or job configurations.
 
 You're right, there's no need to repeat those steps for each type of credential. Here’s a simplified and more concise version:
----
-### Step-3: Configuration of the system
 
 ---
+### Step-3: Configuration of the system
+---
+
 ### Step
 
 
