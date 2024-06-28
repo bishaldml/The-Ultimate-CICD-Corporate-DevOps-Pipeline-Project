@@ -78,8 +78,7 @@ Go to Administration > Configuration > Webhooks and create a webhook for jenkins
 add : http://jenkins_ip:webhook/
 ```
 4. kubernetes
-   
-        1. Create a Kubernetes secret using the following YAML configuration:
+   1. Create a Kubernetes secret using the following YAML configuration:
 
 ### Step-5: Start writing the Pipeline
 1. Goto Jenkins Dashboard.
