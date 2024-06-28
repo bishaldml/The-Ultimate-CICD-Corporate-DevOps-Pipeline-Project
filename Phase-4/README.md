@@ -4,7 +4,12 @@
 3. Leveraged (Prometheus and Grafana) for effective Visualization and Analysis.
 
 ### Step-1: Create an EC2 instance for monitoring.
-
+```
+Name: Monitor
+AMI: Ubuntu
+Instance_Type: t2.medium
+Storage: 25
+```
 
 ### Step-2: Install prometheus
 
