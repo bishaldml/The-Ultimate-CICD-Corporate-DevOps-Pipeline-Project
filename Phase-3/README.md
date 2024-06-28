@@ -239,7 +239,7 @@ pipeline {
       }
 
 
-      stage('12. Verify the Deployment') {
+      stage('13. Verify the Deployment') {
          steps {
             withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: '', credentialsId: 'k8s-cred', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://172.31.55.142:6443') {
                sh "kubectl get pods -n webapps"
