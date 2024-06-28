@@ -2,10 +2,13 @@
 1. Configure Jenkins
 2. Create CICD Pipeline
 3. CICD + Mail Notification
-
+---
 ### Step-1: Browse and login to the Jenkins Server: <jenkins_instance_ip:8080>
 ---
+
+---
 ### Step-2: Install all necessary Plugins in Jenkins
+---
 Steps to Install:
 
 Go to Jenkins dashboard -> Manage Jenkins -> Manage Plugins -> Available tab.
