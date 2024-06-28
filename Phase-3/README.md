@@ -1,3 +1,4 @@
 # Configure Jenkins and CICD Pipeline
-1. Create CICD Pipeline
-2. CICD + Mail Notification
+1. Configure Jenkins
+2. Create CICD Pipeline
+3. CICD + Mail Notification
