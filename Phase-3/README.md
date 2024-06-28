@@ -148,7 +148,7 @@ pipeline {
    stages {
       stage('Git Checkout') {
          steps {
-            git branch: 'main', credentialsId: 'github-esse-jacques-dansomon', url: 'https://github.com/esse-jacques-dansomon/springSchoolManagement'
+            git branch: 'main', credentialsId: 'github-cred', url: 'https://github.com/bishaldml/springSchoolManagement'
          }
       }
 
@@ -207,7 +207,7 @@ pipeline {
          steps {
             script {
                withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                  sh "docker build -t essejacquesdansomon/school_management:latest ."
+                  sh "docker build -t bishaldml/school_management:latest ."
                }
             }
          }
@@ -215,7 +215,7 @@ pipeline {
 
       stage('Docker Image Scan') {
          steps {
-            sh "trivy image --format table -o trivy-fs-report.html essejacquesdansomon/school_management:latest"
+            sh "trivy image --format table -o trivy-fs-report.html bishaldml/school_management:latest"
          }
       }
 
@@ -223,7 +223,7 @@ pipeline {
          steps {
             script {
                withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                  sh "docker push essejacquesdansomon/school_management:latest"
+                  sh "docker push bishaldml/school_management:latest"
                }
             }
          }
