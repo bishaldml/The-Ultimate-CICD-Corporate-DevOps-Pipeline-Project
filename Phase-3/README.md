@@ -146,31 +146,31 @@ pipeline {
    }
 
    stages {
-      stage('Git Checkout') {
+      stage('1. Git CheckOut') {
          steps {
             git branch: 'main', credentialsId: 'github-cred', url: 'https://github.com/bishaldml/springSchoolManagement'
          }
       }
 
-      stage('Compile') {
+      stage('2. mvn Compile') {
          steps {
             sh "mvn compile"
          }
       }
 
-      stage('Tests') {
+      stage('3. mvn Tests') {
          steps {
             sh "mvn test"
          }
       }
 
-      stage('File System Scan') {
+      stage('4. Trivy File System Scan') {
          steps {
             sh "trivy fs --format table -o trivy-fs-report.html ."
          }
       }
 
-      stage('SonarQuebe Analysis') {
+      stage('5. SonarQuebe Analysis') {
          steps {
             withSonarQubeEnv("sonar") {
                sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=schoolManagement -Dsonar.projectKey=schoolManagement \
@@ -179,7 +179,7 @@ pipeline {
          }
       }
 
-      stage('Quality Gate') {
+      stage('6. Quality Gate') {
          steps {
             script {
                waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
@@ -188,14 +188,14 @@ pipeline {
       }
 
 
-      stage('Build') {
+      stage('7. mvn Build') {
          steps {
             sh "mvn package"
          }
       }
 
 
-      stage('Publish to nexus ') {
+      stage('8. Publish to nexus ') {
          steps {
             withMaven(globalMavenSettingsConfig: 'global-settings', jdk: 'jdk17', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {
                sh "mvn deploy"
@@ -203,7 +203,7 @@ pipeline {
          }
       }
 
-      stage('Build & Tag Docker Image') {
+      stage('9. Build & Tag Docker Image') {
          steps {
             script {
                withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
@@ -213,13 +213,13 @@ pipeline {
          }
       }
 
-      stage('Docker Image Scan') {
+      stage('10. Docker Image Scan') {
          steps {
             sh "trivy image --format table -o trivy-fs-report.html bishaldml/school_management:latest"
          }
       }
 
-      stage('Push Docker Image') {
+      stage('11. Push Docker Image') {
          steps {
             script {
                withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
@@ -230,7 +230,7 @@ pipeline {
       }
 
 
-      stage('Deploy to Kubernetes') {
+      stage('12. Deploy to Kubernetes') {
          steps {
             withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: '', credentialsId: 'k8s-cred', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://172.31.55.142:6443') {
                sh "kubectl apply -f ./k8s/app-deployment.yaml"
@@ -239,7 +239,7 @@ pipeline {
       }
 
 
-      stage('Verify the Deployment') {
+      stage('12. Verify the Deployment') {
          steps {
             withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: '', credentialsId: 'k8s-cred', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://172.31.55.142:6443') {
                sh "kubectl get pods -n webapps"
