@@ -89,8 +89,18 @@ metadata:
     kubernetes.io/service-account.name: myserviceaccount
 ```
    2. Save this as service-account-token.yml, then run:
+   ```
+   kubectl -n YOUR_NAMESPACE create -f service-account-token.yml
+   ```
    3. Retrieve the token from the created secret:
-   4. 
+   ```
+   kubectl -n YOUR_NAMESPACE describe secret mysecretname
+   ```
+Look for the token field in the output and copy its value.
+
+1. In Jenkins, choose "Secret text".
+2. Paste the token value retrieved from the Kubernetes secret. Set id as k8s-cred
+3. Click "OK"
 
 ### Step-5: Start writing the Pipeline
 1. Goto Jenkins Dashboard.
