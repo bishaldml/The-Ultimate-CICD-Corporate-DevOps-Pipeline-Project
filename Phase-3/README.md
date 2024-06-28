@@ -55,7 +55,36 @@ You're right, there's no need to repeat those steps for each type of credential.
 2. docker
 3. sonarqube token
 4. kubernetes
-### Step
+
+### Step-5: Start writing the Pipeline
+1. Goto Jenkins Dashboard.
+2. Click "+ New item"
+    1. Name: Project_CICD_bishal
+    2. Select options as "Pipeline"
+3. Ok
+4. Click "Discard old builds"
+    1. Max # of builds to keep: 3
+5.  In Pipeline Tab:
+    1. Script: "Hello World"
+##### @Note: After we select "Hello World" , we can start modifying if by firstly creating multiple stages and so on.
+6.  Click "Apply"
+
+No. of stages that we are going to build on this project are as follows:
+```
+1. Git CheckOut
+2. mvn compile
+3. mvn test
+4. Trivy File system scan
+5. SonarQube Analaysis
+6. Quality Gate
+7. mvn package Build
+8. Publish to Nexus
+9. Build and Tag Docker Image
+10. Docker Image Scan
+11. Push Docker Image
+12. Deploy to k8's
+13. Verify the Deployment
+```
 
 ### Step
 
