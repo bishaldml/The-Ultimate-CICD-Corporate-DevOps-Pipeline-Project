@@ -46,3 +46,11 @@ rm node_exporter-1.8.1.linux-amd64.tar.gz
 cd node_exporter-1.8.1.linux-amd64/
 ./node_exporter &
 ```
+
+---
+
+Browse Promethues on: ```Monitor_instace_IP:9090```
+
+Browse Grafana on: ```Monitor_instace_IP:3000```
+
+Browse BlackBox on: ```Monitor_instace_IP:9115```
