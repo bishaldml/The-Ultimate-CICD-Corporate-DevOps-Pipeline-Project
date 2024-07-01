@@ -169,6 +169,14 @@ eksctl create nodegroup --cluster=bishaldml-eks \
                        --appmesh-access \
                        --alb-ingress-access
 ```
+Now, opening some inbound traffic in additional Security Group: for Communication betwm master node and control plane.
+1. open your eks
+2. Goto networking tab.
+3. Click on "Additional Security Groups"
+4. Edit inbound rule.
+5. Add rule
+6. All Traffic ---> Anywhere
+7. Save Rules
 ---
 
 ### Step-4: Installing Jenkins on the Jenkins_Server instance:
