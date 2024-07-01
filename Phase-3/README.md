@@ -26,7 +26,7 @@ Select and install each plugin without restarting.
 - list of the all the necessary plugins:
 1. Eclipse Temurin Installer: Automatically install and configure the Eclipse Temurin JDK.
 2. Pipeline Maven Integration: Provides Maven support for Jenkins Pipeline.
-3. File Provider: Manage configuration files centrally in Jenkins.
+3. config File Provider: Manage configuration files centrally in Jenkins.
 4. SonarQube Scanner: Integrate Jenkins with SonarQube for code analysis.
 5. Kubernetes CLI: Interact with Kubernetes clusters using kubectl.
 6. Kubernetes: Run Jenkins agents as pods within a Kubernetes cluster.
