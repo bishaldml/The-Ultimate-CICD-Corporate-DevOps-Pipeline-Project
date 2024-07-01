@@ -157,7 +157,7 @@ pipeline {
    stages {
       stage('1. Git CheckOut') {
          steps {
-            git branch: 'main', credentialsId: 'github-cred', url: 'https://github.com/bishaldml/springSchoolManagement'
+            git branch: 'main', credentialsId: 'git-cred', url: 'https://github.com/bishaldml/The-Ultimate-CICD-Corporate-DevOps-Pipeline-Project-Source-Code-by-devopsshack.git'
          }
       }
 
