@@ -111,7 +111,7 @@ Its going to create user_name and passwords which we can download in CSV format.
 ---
 ssh to Jenkins_Server instance:
 ```
-sudo apt update && apt upgrade -y
+sudo apt update
 ```
 Now, we will install AWSCLI, KUBECTL and EKSCTL on Jenkins_Server
 1. AWSCLI: use to interact with AWS account.
