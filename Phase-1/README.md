@@ -141,19 +141,19 @@ eksctl version
 ```
 #### Create EKS Cluster:
 ```
-eksctl create cluster --name=<my-eks22> \
-                      --region=ap-south-1 \
-                      --zones=ap-south-1a,ap-south-1b \
+eksctl create cluster --name=bishaldml-eks \
+                      --region=ap-southeast-1 \
+                      --zones=ap-southeast-1a,ap-southeast-1b \
                       --version=1.30 \
                       --without-nodegroup
 
 eksctl utils associate-iam-oidc-provider \
-    --region ap-south-1 \
-    --cluster <my-eks22> \
+    --region ap-southeast-1 \
+    --cluster bishaldml-eks \
     --approve
 
-eksctl create nodegroup --cluster=<my-eks22> \
-                       --region=ap-south-1 \
+eksctl create nodegroup --cluster=bishaldml-eks \
+                       --region=ap-southeast-1 \
                        --name=node2 \
                        --node-type=t3.medium \
                        --nodes=3 \
