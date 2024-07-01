@@ -47,12 +47,12 @@ K8's -----> EKS
 2. select 'Add Permissions'
 3. Permissions options: Attach policies directly
 4. Search the following policies and add:
-  1. AmazonEC2FullAccess
-  2. AmazonEKS_CNI_Policy
-  3. AmazonEKSClusterPolicy
-  4. AmazonEKSWorkerNodePolicy
-  5. AWSCloudFormationFullAccess
-  6. IAMFullAccess
+     1. AmazonEC2FullAccess
+     2. AmazonEKS_CNI_Policy
+     3. AmazonEKSClusterPolicy
+     4. AmazonEKSWorkerNodePolicy
+     5. AWSCloudFormationFullAccess
+     6. IAMFullAccess
 
 ##### @ Note: Once all the policies are added and we need to add the inline policy also. For that:
 1. Again Select "Add Permission"
