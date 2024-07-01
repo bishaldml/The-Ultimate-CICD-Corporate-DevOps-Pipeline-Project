@@ -161,7 +161,7 @@ eksctl create nodegroup --cluster=bishaldml-eks \
                        --nodes-max=4 \
                        --node-volume-size=20 \
                        --ssh-access \
-                       --ssh-public-key=Key \
+                       --ssh-public-key=bishaldml-key \
                        --managed \
                        --asg-access \
                        --external-dns-access \
