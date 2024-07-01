@@ -278,7 +278,7 @@ sudo docker compose up -d
 OR,
 Run the nexus container using docker only:
 ```
-docker run -d --name nexus3 -p 8081:8018 sonatype/nexus
+docker run -d --name nexus3 -p 8081:8081 sonatype/nexus
 ```
 5. Access Nexus by opening a web browser and navigating to ```http://<Nexus_instance_Ip>:8081```
 6.  Login to nexus and change password: Its initial username is admin and password is located at /nexus-data/admin.password
